@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: numbott-telethon
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    autoDeploy: false
+    healthCheckPath: /health
+    envVars:
+      - key: API_ID
+        sync: false
+      - key: API_HASH
+        sync: false
+      - key: BOT_TOKEN
+        sync: false
+      - key: ADMIN_ID
+        sync: false
+      - key: LOG_CHANNEL_ID
+        sync: false
+      - key: CHECK_CHANNELS
+        sync: false
+      - key: JOIN_URLS
+        sync: false
+      - key: MONGO_URI
+        sync: false
+      - key: MONGO_DB_NAME
+        value: numbott
+      - key: PYTHON_VERSION
+        value: 3.10.12
